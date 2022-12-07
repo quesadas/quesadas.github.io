@@ -18,4 +18,24 @@ const provider = new GoogleAuthProvider();
 // Firestore database
 const db = getFirestore(app);
 
+signInButton.onclick = () => signInWithPopup(auth, provider);
+signOutButton.onclick = () => {
+    signOut(auth, provider);
+    location.reload()
+}
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // If a user signs in:
+        signedInSection.hidden = false;
+        signInButton.hidden = true;
+        signOutButton.hidden = false;
+        userDetails.innerHTML = `<h3>Hello ${user.displayName}!</h3>`;
+    } else {
+        userDetails.innerHTML = '';
+        signInButton.hidden = false;
+        signOutButton.hidden = true;
+    }
+});
+
 

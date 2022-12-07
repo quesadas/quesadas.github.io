@@ -1,0 +1,23 @@
+{
+  "name": "final_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egnguyen/cubstart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/egnguyen/cubstart/issues"
+  },
+  "homepage": "https://github.com/egnguyen/cubstart#readme",
+  "dependencies": {
+    "firebase": "^9.14.0",
+    "firebase-tools": "^11.16.1"
+  }
+}

@@ -18,19 +18,18 @@
         <div class="navbar">
             <ul>
                 <li><a href="createCourse.html">Create New Course</a></li>
+                <li><a href="editCourse.html">Edit Course</a></li>
                 <li><a href="coursesList.html">Current Courses</a></li>
                 <li><a href="#">Account</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- Submit button within the form did not work with Firebase -->
-    <button id="createCourse">Add Course</button>
-
     <form style=" width: 50vw; margin-left : 24vw; margin-top : 8vw;" class ="creatorCourse"> 
         <label for="course">Course Name:</label><br>
         <input type="text" id="courseName" name="course" value=""><br>
         <label for="days">Days: (MWF, TTh, etc.)</label><br>
         <input type="text" id="days" name="days" value=""><br><br>
+        <button type="reset" id="createCourse">Add Course</button>
     </form>
 </html>

@@ -1,4 +1,4 @@
-import { app, auth, provider, db, onAuthStateChanged, signInWithPopup, signOut } from './firebase.js';
+import { app, auth, provider, db, onAuthStateChanged, signInWithPopup, signOut, collection, query, where, getDocs } from './firebase.js';
 
 const signInButton = document.getElementById('signInButton');
 const signOutButton = document.getElementById('signOutButton');
@@ -14,10 +14,29 @@ signOutButton.onclick = () => {
     location.reload()
 }
 
+const tasksRef = collection(db, "tasks");
+const toDoList = document.getElementById('listings');
+
+let loadTasks  = async (user) => {
+    const q = query(tasksRef, where('uid', '==', user.uid));
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
+      });
+
+    const items = querySnapshot.docs.map(doc => {
+        return `<li>${doc.data().course_name}: ${doc.data().type} - ${doc.data().text}</li>`
+    });
+
+    toDoList.innerHTML = items.join('');
+}
+
 
 onAuthStateChanged(auth, (user) => {
     let signedInSection = document.getElementById('signedInSection');
     let userDetails = document.getElementById('userDetails')
+
     if (user) {
         // If a user signs in:
         signedInSection.hidden = false;
@@ -37,5 +56,11 @@ onAuthStateChanged(auth, (user) => {
         headerP.hidden = false;
         pointsHeader.hidden = true;
         points.hidden = true;
+    }
+});
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        loadTasks(user);
     }
 });

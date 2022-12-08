@@ -26,7 +26,7 @@ let loadTasks  = async (user) => {
       });
 
     const items = querySnapshot.docs.map(doc => {
-        return `<li>${doc.data().course_name}: ${doc.data().type} - ${doc.data().text}</li>`
+        return `<li><b>${doc.data().course_name}</b>: ${doc.data().type} - ${doc.data().text}</li>`
     });
 
     toDoList.innerHTML = items.join('');

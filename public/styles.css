@@ -185,14 +185,11 @@ li a:focus::after{
     font-size: 28px;
     font-family: 'Roboto';
     color: #0E3657;
-    margin: 30px;
+    margin: 10px;
   }
+
   .container h3 {
-    padding-top: 100px;
-  }
-  
-  .container ol {
-    list-style: none;
+    padding-top: 0px;
   }
   
   .container li {

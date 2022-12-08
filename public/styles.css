@@ -162,21 +162,18 @@ li a:focus::after{
     display: table-cell;
     vertical-align: middle;
     text-align: left;
-    float: middle;
+    float: left;
     font-size: 28px;
     font-family: 'Roboto';
     color: #0E3657;
     margin: 30px;
   }
   .container h3 {
-    padding-top: 160px;
-    padding-left: 200px;
-    
+    padding-top: 100px;
   }
   
   .container ol {
     list-style: none;
-    padding-left: 200px;
   }
   
   .container li {
@@ -219,6 +216,7 @@ li a:focus::after{
     width: 100%;
     transition: 0s;
   }
+
 
   
   
